@@ -12,6 +12,10 @@ int main(int argc, char *argv[]){
     printf("%s\n", argv[i]);
   }*/
 
+  if (argc < 2){
+    help()
+  }
+
   char *message = "hello from the other siiide";
 
   char buffer[1024];
