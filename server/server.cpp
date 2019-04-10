@@ -28,7 +28,9 @@ int main(){
   int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
   // bind socket
-  bind(sockfd, (struct sockaddr *)&address, sizeof(address));
+  if (bind(sockfd, (struct sockaddr *)&address, sizeof(address))<0){
+    printf("error binding socket\n");
+  }
 
   printf("listening on port %d\n", PORT);
   if (listen(sockfd, backlog) < 0){

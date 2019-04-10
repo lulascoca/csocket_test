@@ -7,7 +7,10 @@
 
 #define PORT 8000
 
-int main(){
+int main(int argc, char *argv[]){
+  for (int i = 0; i < argc; ++i){
+    printf("%s\n", argv[i]);
+  }
   char *message = "hello from the other siiide";
 
   char buffer[1024];
