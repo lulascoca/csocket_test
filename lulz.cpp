@@ -42,7 +42,7 @@ void help(){
 int bind_socket(char *local_addr, char *local_port, int proto){
   int sockfd;
 
-  if(){
+  if(local_addr || local_port){
 
 
     return sockfd;
@@ -92,6 +92,9 @@ int main(int argc, char** argv){
 
   if (o_listen){
 
+
     int sockfd = bind_socket()
+
+
   }
 }
