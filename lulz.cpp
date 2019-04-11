@@ -36,7 +36,17 @@ void help(){
         	"-u		UDP mode\n"
         	"-v		verbose [repeat to be more verbose]\n"
         	"-w SECS		timeout for connects and final net reads\n"
-        	"-z		zero-I/O mode [used for scanning]\n\n");
+          "-z		zero-I/O mode [used for scanning]\n\n");
+}
+
+int bind_socket(char *local_addr, char *local_port, int proto){
+  int sockfd;
+
+  if(){
+
+
+    return sockfd;
+  }
 }
 
 int main(int argc, char** argv){
@@ -48,15 +58,40 @@ int main(int argc, char** argv){
 
   struct sockaddr_in address;
 
-  while ((x = getopt (argc, argv, "46bc:e:hi::lno:p:q::rs:tuvw:z")) != EOF)
-   {
-     switch (x){
-       case '4':
-         address.sin_family = AF_INET;
-         printf("%s\n", argv[optind]);
-         break;
-       case 'l':
-         break;
+  char *remote_port = NULL;
+  char *remote_addr = NULL;
+  char *locar_port = NULL;
+  char *local_addr = NULL;
+
+
+  char *o_lport;
+  int o_listen = 0;
+
+
+  while ((x = getopt (argc, argv, "46bc:e:hi::lno:p:q::rs:tuvw:z")) != EOF){
+  switch (x){
+    case '4':
+      address.sin_family = AF_INET;
+      break;
+    case '6':
+      printf("ipv6 is not supported yet xD\n");
+      break;
+    case 'l':
+      o_listen++;
+      if (address.sin_family != AF_INET){
+        address.sin_family = AF_INET;
+      }
+      break;
+    case 'p':
+      break;
+    default:
+      printf ("Try nc -h for help\n");
+      break;
     }
+  }
+
+  if (o_listen){
+
+    int sockfd = bind_socket()
   }
 }
