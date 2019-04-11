@@ -41,9 +41,15 @@ void help(){
 
 int bind_socket(char *local_addr, char *local_port, int proto){
   int sockfd;
-
+  struct *wherefrom;
+  wherefrom = &address;
+  sockfd = socket()
   if(local_addr || local_port){
-
+    sockfd = socket(wherefrom->sin_family, SOCK_STREAM, 0);
+    if (sockfd < 0){
+      printf("error binding socket")
+      exit(0)
+    }
 
     return sockfd;
   }
@@ -78,11 +84,13 @@ int main(int argc, char** argv){
       break;
     case 'l':
       o_listen++;
+      inet_pton(address.sin_family, argv[optind], &address.sin_addr);
       if (address.sin_family != AF_INET){
         address.sin_family = AF_INET;
       }
       break;
     case 'p':
+      address.sin_port = htons(argv[optind])
       break;
     default:
       printf ("Try nc -h for help\n");
@@ -91,8 +99,6 @@ int main(int argc, char** argv){
   }
 
   if (o_listen){
-
-
     int sockfd = bind_socket()
 
 
